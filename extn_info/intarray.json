@@ -1,3 +1,4 @@
 {
-  "udt_field": "data"
+  "udt_field": "data",
+  "no_preload": true
 }

@@ -54,9 +54,21 @@ def single_cleanup():
 def type_table_setup(type_extn):
   subprocess.run("./pg-15-dist/bin/psql -U abigalek -d postgres -f type_sql/" + type_extn + ".sql", cwd=current_working_dir, shell=True)
 
+def write_into_preload(extn_list):
+  postgres_conf = open("./" + pg_data_dir + "/postgresql.conf", "a")
+  extns_to_preload = []
+  for extn in extn_list:
+    extn_entry = extn_db[extn]
+    if "no_preload" not in extn_entry:
+      extns_to_preload.append(extn)
+
+  shared_preload_lib_str = ','.join(extns_to_preload)
+  postgres_conf.write("shared_preload_libraries = '" + shared_preload_lib_str + "'" + "\n")
+
 def single_testing(type_extn, index_extn):
   print("Testing type " + type_extn + " and index " + index_extn)
   init_db()
+  write_into_preload([type_extn, index_extn])
   start_postgres()
   type_table_setup(type_extn)
 
@@ -80,7 +92,7 @@ def single_testing(type_extn, index_extn):
     subprocess.run("touch " + testing_output_dir + "/" + failure_file_name, cwd=current_working_dir, shell=True)
     failure_file = open(testing_output_dir + "/" + failure_file_name, "w")
     failure_file.write(test_err)
-  
+
   stop_postgres()
   single_cleanup()
 
