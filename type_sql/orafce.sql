@@ -1,0 +1,61 @@
+CREATE EXTENSION IF NOT EXISTS orafce;
+
+-- Create the table with oracle.varchar2 type and a data field (integer)
+CREATE TABLE orafce_table (
+    id SERIAL PRIMARY KEY,  -- Adding a primary key for the table
+    varchar2_field oracle.varchar2,
+    data INT
+);
+
+-- Insert 50 tuples with oracle.varchar2 values and integer data
+INSERT INTO orafce_table (varchar2_field, data) VALUES
+('hello'::oracle.varchar2, 1),
+('world'::oracle.varchar2, 2),
+('foo'::oracle.varchar2, 3),
+('bar'::oracle.varchar2, 4),
+('baz'::oracle.varchar2, 5),
+('example'::oracle.varchar2, 6),
+('test'::oracle.varchar2, 7),
+('postgres'::oracle.varchar2, 8),
+('database'::oracle.varchar2, 9),
+('oracle'::oracle.varchar2, 10),
+('varchar2'::oracle.varchar2, 11),
+('table'::oracle.varchar2, 12),
+('column'::oracle.varchar2, 13),
+('data'::oracle.varchar2, 14),
+('type'::oracle.varchar2, 15),
+('extension'::oracle.varchar2, 16),
+('query'::oracle.varchar2, 17),
+('insert'::oracle.varchar2, 18),
+('select'::oracle.varchar2, 19),
+('update'::oracle.varchar2, 20),
+('delete'::oracle.varchar2, 21),
+('primary'::oracle.varchar2, 22),
+('key'::oracle.varchar2, 23),
+('constraint'::oracle.varchar2, 24),
+('index'::oracle.varchar2, 25),
+('foreign'::oracle.varchar2, 26),
+('reference'::oracle.varchar2, 27),
+('join'::oracle.varchar2, 28),
+('inner'::oracle.varchar2, 29),
+('outer'::oracle.varchar2, 30),
+('left'::oracle.varchar2, 31),
+('right'::oracle.varchar2, 32),
+('group'::oracle.varchar2, 33),
+('order'::oracle.varchar2, 34),
+('having'::oracle.varchar2, 35),
+('limit'::oracle.varchar2, 36),
+('offset'::oracle.varchar2, 37),
+('distinct'::oracle.varchar2, 38),
+('aggregate'::oracle.varchar2, 39),
+('function'::oracle.varchar2, 40),
+('stored'::oracle.varchar2, 41),
+('procedure'::oracle.varchar2, 42),
+('trigger'::oracle.varchar2, 43),
+('view'::oracle.varchar2, 44),
+('materialized'::oracle.varchar2, 45),
+('schema'::oracle.varchar2, 46),
+('user'::oracle.varchar2, 47),
+('role'::oracle.varchar2, 48),
+('permissions'::oracle.varchar2, 49),
+('grant'::oracle.varchar2, 50);

@@ -1,0 +1,5 @@
+{
+  "udt_field": "val",
+  "index_name": "hnsw",
+  "create_extn_name": "vector"
+}
